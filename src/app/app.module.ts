@@ -3,14 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SexoPipe } from './pipes/sexo.pipe';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { NovoComponent } from './components/novo/novo.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppMaterialModule } from './shared/app-material/app-material.module';
+import { EfetivacaoPipe } from './pipes/efetivacao.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SexoPipe,
+    ToolbarComponent,
+    NovoComponent,
+    DashboardComponent,
+    EfetivacaoPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AppMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

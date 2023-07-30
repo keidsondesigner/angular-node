@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, tap } from 'rxjs';
-import { CursoService } from './services/curso.service';
+import { Observable } from 'rxjs';
+import { CursoService } from 'src/app/services/curso.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-listagem',
+  templateUrl: './listagem.component.html',
+  styleUrls: ['./listagem.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'angularUdemy';
-
+export class ListagemComponent implements OnInit {
   courses$!: Observable<any>;
 
   constructor( private _coursesService: CursoService ){};
@@ -20,4 +18,5 @@ export class AppComponent implements OnInit {
     //   console.log('retorno funçao', dados);
     // });
   }
+
 }

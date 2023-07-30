@@ -1,0 +1,21 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-icon {
+  border: none;
+}
+
+.topnav {
+  gap: 20px;
+  display: flex;
+  a {
+    text-decoration: none;;
+  }& :active {
+    color: white;
+  }& :visited {
+    color: white;
+  }& :hover {
+    color: black;
+  }
+}

@@ -1,0 +1,48 @@
+<!-- <h1>Olá mundo</h1>
+<hr>
+<section *ngFor="let cliente of clientes">
+  <div>Nome: {{ cliente.nome }}</div>
+  <div>Nome: {{ cliente.sexo | sexo }}</div>
+  <div>Idade: {{ cliente.idade }}</div>
+  <div>Salário: {{ cliente.salario | currency: 'BRL' }}</div>
+  <div *ngIf="cliente.tempoIntegral; else menorAprendiz">
+    <p>Efetivado</p>
+  </div>
+  <ng-template #menorAprendiz>
+    <p>Menor aprendiz</p>
+  </ng-template>
+  <hr>
+</section> -->
+<section>
+  <table mat-table [dataSource]="clientes" class="mat-elevation-z0">
+    <!-- Name Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let element"> {{ element.nome }} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="sexo">
+      <th mat-header-cell *matHeaderCellDef> Gênero </th>
+      <td mat-cell *matCellDef="let element"> {{ element.sexo | pipeSexo }} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="idade">
+      <th mat-header-cell *matHeaderCellDef> Idade </th>
+      <td mat-cell *matCellDef="let element"> {{ element.idade }} anos</td>
+    </ng-container>
+    <ng-container matColumnDef="salario">
+      <th mat-header-cell *matHeaderCellDef> Salário </th>
+      <td mat-cell *matCellDef="let element"> {{ element.salario | currency: 'BRL' }} </td>
+    </ng-container>
+    <ng-container matColumnDef="tempoIntegral">
+      <th mat-header-cell *matHeaderCellDef> Tipo de efetivação </th>
+      <td mat-cell *matCellDef="let element"> {{ element.tempoIntegral | pipeEfetivacao }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</section>
+
