@@ -13,7 +13,7 @@ export class CursoService {
 
   getAllCourses(): Observable<any> {
       return this.http.get<any>(`${this.baseUrl}/cursos`).pipe(
-        tap(retorno => console.log('retorno getAllCourses()', retorno))
+        tap(retorno => console.log('retorno service: getAllCourses()', retorno))
       );
   }
 }

@@ -16,10 +16,10 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     SexoPipe,
+    EfetivacaoPipe,
     ToolbarComponent,
     NovoComponent,
     DashboardComponent,
-    EfetivacaoPipe
   ],
   imports: [
     BrowserModule,
@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppMaterialModule,
     HttpClientModule
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })
