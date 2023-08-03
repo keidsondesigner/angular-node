@@ -16,4 +16,8 @@ export class CursoService {
         tap(retorno => console.log('retorno service: getAllCourses()', retorno))
       );
   }
+
+  getCourse(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/cursos/${id}`);
+  }
 }
