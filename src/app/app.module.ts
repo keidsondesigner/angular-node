@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './shared/app-material/app-material.module';
 import { EfetivacaoPipe } from './pipes/efetivacao.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     AppMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   exports: [],
   providers: [],

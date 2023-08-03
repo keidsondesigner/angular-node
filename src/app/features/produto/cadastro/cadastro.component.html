@@ -1,1 +1,15 @@
-<p>cadastro works!</p>
+<section>
+  <form class="example-form" [formGroup]="formCourse">
+    <mat-form-field class="example-full-width">
+      <mat-label>Categoria</mat-label>
+      <input matInput placeholder="Digite a categoria" formControlName="categoria">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Curso</mat-label>
+      <input matInput placeholder="Digite o curso" formControlName="curso">
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" (click)="salvarAlteracao()">Salvar alterações</button>
+  </form>
+</section>

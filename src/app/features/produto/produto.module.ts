@@ -5,8 +5,7 @@ import { ProdutoRoutingModule } from './produto-routing.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ListagemComponent } from './listagem/listagem.component';
 import { AppMaterialModule } from 'src/app/shared/app-material/app-material.module';
-import { SexoPipe } from 'src/app/pipes/sexo.pipe';
-import { EfetivacaoPipe } from 'src/app/pipes/efetivacao.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +16,8 @@ import { EfetivacaoPipe } from 'src/app/pipes/efetivacao.pipe';
   imports: [
     CommonModule,
     ProdutoRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class ProdutoModule { }
