@@ -6,6 +6,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { ListagemComponent } from './listagem/listagem.component';
 import { AppMaterialModule } from 'src/app/shared/app-material/app-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ProdutoRoutingModule,
     AppMaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxSkeletonLoaderModule
   ]
 })
 export class ProdutoModule { }

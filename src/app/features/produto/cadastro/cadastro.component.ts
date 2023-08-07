@@ -24,7 +24,7 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.url[1].path;
-    this.createForm();
+    this.initForm();
 
     this._coursesService.getCourse(Number(this.id)).subscribe( course => {
       this.curso = course;
@@ -34,7 +34,7 @@ export class CadastroComponent implements OnInit {
     })
   }
 
-  createForm() {
+  initForm() {
     this.formCourse = this.formBuilder.group({
       categoria: '',
       curso: '',

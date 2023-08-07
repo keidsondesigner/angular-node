@@ -1,9 +1,32 @@
 <ng-template #loading>
-  <div class="loading-container">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
+  <div class="skeleton-header">
+    <ngx-skeleton-loader
+    count="1"
+    appearance="line"
+    [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+    >
+    </ngx-skeleton-loader>
+    <ngx-skeleton-loader
+    count="1"
+    appearance="line"
+    [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+    >
+    </ngx-skeleton-loader>
+    <ngx-skeleton-loader
+    count="1"
+    appearance="line"
+    [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+    >
+    </ngx-skeleton-loader>
+  </div>
+  <div class="skeleton-body">
+    <ngx-skeleton-loader
+    count="3"
+    appearance="line"
+    [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+    >
+    </ngx-skeleton-loader>
+
   </div>
 </ng-template>
 <section>
