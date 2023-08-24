@@ -38,7 +38,6 @@ const metaReducers: MetaReducer[] = [hydrationMetaReducer ]
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({}, { metaReducers }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot(),
     StoreRouterConnectingModule.forRoot(),
