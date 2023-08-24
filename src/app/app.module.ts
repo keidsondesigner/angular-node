@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { MetaReducer } from './../../node_modules/@ngrx/store/src/models.d';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +13,14 @@ import { AppMaterialModule } from './shared/app-material/app-material.module';
 import { EfetivacaoPipe } from './pipes/efetivacao.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { environment } from '../environments/environment';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { hydrationMetaReducer } from './rehydrate_reducer';
 
+const metaReducers: MetaReducer[] = [hydrationMetaReducer ]
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +36,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     AppMaterialModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({}, { metaReducers }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot(),
+    StoreRouterConnectingModule.forRoot(),
   ],
   exports: [],
   providers: [],
