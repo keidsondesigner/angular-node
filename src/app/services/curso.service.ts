@@ -20,7 +20,7 @@ export class CursoService {
     return this.http.get<Course>(`${this.baseUrl}/cursos/${id}`);
   }
 
-  updateCourse(course: Course): Observable<any> {
-    return this.http.put(`${this.baseUrl}/cursos/${course.id}`, course);
+  updateCourse(bodyCourse: Course): Observable<any> {
+    return this.http.put(`${this.baseUrl}/cursos/${bodyCourse.id}`, bodyCourse);
   }
 }

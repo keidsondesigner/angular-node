@@ -42,14 +42,14 @@ export class CadastroComponent implements OnInit {
   }
 
   saveChanges() {
-    const productToSave: Course = {
+    const bodyCourseToSave: Course = {
       id: Number(this.id),
       categoria: this.formCourse.controls['categoria'].value,
       curso: this.formCourse.controls['curso'].value
     }
     console.log('form com novo valor', this.formCourse.getRawValue());
 
-    this._coursesService.updateCourse(productToSave).subscribe(response => {
+    this._coursesService.updateCourse(bodyCourseToSave).subscribe(response => {
       console.log(response);
       this.router.navigate((['produto/listagem']));
     })
