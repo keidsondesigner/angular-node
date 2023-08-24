@@ -1,29 +1,44 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable, tap } from 'rxjs';
-import { CursoService } from 'src/app/services/curso.service';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { ConsultaCursosFacade } from 'src/app/core/providers/consulta-cursos/consulta-cursos.facade';
 
 @Component({
   selector: 'app-listagem',
   templateUrl: './listagem.component.html',
   styleUrls: ['./listagem.component.scss']
 })
-export class ListagemComponent implements OnInit {
+export class ListagemComponent implements OnInit, OnDestroy {
   displayedColumns: string[] = ['categoria', 'curso', 'acoes'];
-  courses$!: Observable<any>;
-  // cursos!: any[];
 
-  constructor( private _coursesService: CursoService, private router: Router ){};
+  isLoading$!: Observable<boolean>;
+  listaCursos$!: Observable<any[]>;
+  erro!: string;
+  destroyed$!: Subject<void>;
 
-  ngOnInit(): void {
-    this.courses$ = this._coursesService.getAllCourses().pipe(tap(
-      retorno => console.log('chamada do método', retorno)
-    ));
-    // this._coursesService.getAllCourses().subscribe( cursos => {
-    //   console.log('retorno funçao', cursos);
-    //   this.cursos = cursos;
-    // });
+
+  constructor(private consultaCursosFacade: ConsultaCursosFacade, private router: Router) {}
+
+  ngOnInit() {
+    this.setup();
+  }
+
+  setup() {
+    this.destroyed$ = new Subject();
+    this.consultaCursosFacade.obterLista();
+    this.isLoading$ = this.consultaCursosFacade.selecionaIsLoading$();
+    this.listaCursos$ = this.consultaCursosFacade.selecionaLista$().pipe(takeUntil(this.destroyed$));
+
+    this.consultaCursosFacade
+      .selecionaErro$()
+      .pipe(takeUntil(this.destroyed$))
+      .subscribe(erro => (this.erro = erro));
+  }
+
+  ngOnDestroy() {
+    this.destroyed$.next();
+    this.destroyed$.complete();
   }
 
   editar(course: any){

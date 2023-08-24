@@ -1,4 +1,4 @@
-<ng-template #loading>
+<section *ngIf="isLoading$ | async" >
   <div class="skeleton-header">
     <ngx-skeleton-loader
     count="1"
@@ -26,11 +26,11 @@
     [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
     >
     </ngx-skeleton-loader>
-
   </div>
-</ng-template>
+</section>
+
 <section>
-  <div *ngIf="courses$ | async as courses; else loading">
+  <div *ngIf="(isLoading$ | async) === false && (listaCursos$ | async) as courses">
     <table mat-table [dataSource]="courses" class="mat-elevation-z0">
       <ng-container matColumnDef="categoria">
         <th mat-header-cell *matHeaderCellDef> Categoria </th>
