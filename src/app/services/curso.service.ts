@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Course } from 'src/models/course.model';
+import { ICourse } from 'src/app/core/models/course.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +12,15 @@ export class CursoService {
 
   constructor( private http: HttpClient ) { }
 
-  getAllCourses(): Observable<Course[]> {
-      return this.http.get<Course[]>(`${this.baseUrl}/cursos`);
+  getAllCourses(): Observable<ICourse[]> {
+      return this.http.get<ICourse[]>(`${this.baseUrl}/cursos`);
   }
 
-  getCourse(id: number): Observable<Course> {
-    return this.http.get<Course>(`${this.baseUrl}/cursos/${id}`);
+  getCourse(id: number): Observable<ICourse> {
+    return this.http.get<ICourse>(`${this.baseUrl}/cursos/${id}`);
   }
 
-  updateCourse(bodyCourse: Course): Observable<any> {
+  updateCourse(bodyCourse: ICourse): Observable<any> {
     return this.http.put(`${this.baseUrl}/cursos/${bodyCourse.id}`, bodyCourse);
   }
 }

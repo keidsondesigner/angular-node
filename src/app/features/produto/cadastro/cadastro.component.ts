@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CursoService } from 'src/app/services/curso.service';
-import { Course } from 'src/models/course.model';
+import { ICourse } from 'src/app/core/models/course.model';
 
 @Component({
   selector: 'app-cadastro',
@@ -42,7 +42,7 @@ export class CadastroComponent implements OnInit {
   }
 
   saveChanges() {
-    const bodyCourseToSave: Course = {
+    const bodyCourseToSave: ICourse = {
       id: Number(this.id),
       categoria: this.formCourse.controls['categoria'].value,
       curso: this.formCourse.controls['curso'].value
