@@ -1,0 +1,52 @@
+<h1>Register</h1>
+<section>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field class="example-full-width">
+          <mat-label class="form-label">Nome</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="name"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            placeholder="Digite seu nome"
+          />
+          <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+              <div *ngIf="f['name'].errors['required']">Last Name is required</div>
+          </div>
+        </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <mat-label class="form-label">Email</mat-label>
+          <input
+            matInput
+            type="email"
+            formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            placeholder="Digite seu email"
+          />
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['email']">Email is required</div>
+          </div>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <mat-label class="form-label">Password</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            placeholder="Digite sua senha"
+          />
+          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+              <div *ngIf="f['password'].errors['required']">Password is required</div>
+              <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+          </div>
+      </mat-form-field>
+      <div>
+          <button type="submit" mat-flat-button color="primary" [disabled]="loading" >
+              <span *ngIf="loading" class="spinner-border spinner-border-sm me-1">...</span>
+              Register
+          </button>
+          <a mat-flat-button mat-flat-button routerLink="/pages/auth/login">Cancel</a>
+      </div>
+  </form>
+</section>
