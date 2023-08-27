@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
         if(e.status === 401) {
           this.toastrNotifier.error('preencha novamente.', 'Senha incorreta!');
         } else if(e.status === 400) {
-          this.toastrNotifier.error('Clique e registrar-se', 'Email não existe!');
+          this.toastrNotifier.error('Crie uma conta', 'Email não existe!');
         }
       }
     });

@@ -34,7 +34,7 @@ export class AddJwtInterceptor implements HttpInterceptor {
           this.router.navigate(['/pages/auth/login']);
           this.toastrNotifier.error('Efetue o login corretamente', 'Token inválido!');
         }
-        return throwError(() => new Error('Error'));
+        return throwError(() => error);
       })
     );
   }
