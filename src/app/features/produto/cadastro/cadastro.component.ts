@@ -20,11 +20,12 @@ export class CadastroComponent implements OnInit {
     private _coursesService: CursoService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ){};
+  ){
+    this.initForm();
+  };
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.url[1].path;
-    this.initForm();
 
     this._coursesService.getCourse(Number(this.id)).subscribe( course => {
       this.curso = course;
