@@ -1,0 +1,38 @@
+<h1>Login</h1>
+<section>
+  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="email"
+        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+        placeholder="Digite seu email"
+      >
+      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+        <div *ngIf="f['email'].errors['email']">email is required</div>
+    </div>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+        placeholder="Digite a senha"
+      >
+      <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+        <div *ngIf="f['password'].errors['required']">Password is required</div>
+    </div>
+    </mat-form-field>
+
+    <button type="submit" mat-flat-button color="primary" [disabled]="loading">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm me-1">...</span>
+        Login
+    </button>
+    <a mat-flat-button routerLink="/pages/auth/register" class="btn btn-link">Register</a>
+  </form>
+</section>
