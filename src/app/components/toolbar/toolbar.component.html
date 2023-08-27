@@ -3,7 +3,8 @@
   <span class="example-spacer"></span>
   <div class="topnav">
     <a routerLink="/">Home</a>
-    <a routerLink="novo-produto">Novo</a>
-    <a routerLink="lista-produtos">Produtos</a>
+    <a routerLink="/produtos/novo-produto">Novo</a>
+    <a routerLink="/produtos/lista-produtos">Produtos</a>
+    <a mat-flat-button mat-flat-button (click)="logOut()">Sair</a>
   </div>
 </mat-toolbar>

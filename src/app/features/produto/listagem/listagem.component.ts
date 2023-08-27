@@ -42,7 +42,7 @@ export class ListagemComponent implements OnInit, OnDestroy {
   }
 
   editar(course: any){
-    this.router.navigate(['editar-produto', course.id]);
+    this.router.navigate(['/produtos/editar-produto', course.id]);
     console.log('editar');
   }
 
