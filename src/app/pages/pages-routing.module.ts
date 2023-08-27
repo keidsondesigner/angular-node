@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PagesComponent } from './pages.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { UsersComponent } from './auth/users/users.component';
 
+//Gurads
+import { AuthGuard } from '../core/utils/auth.guard';
+
 const routes: Routes = [
   {
-    path: 'auth',
-    redirectTo: 'auth',
+    path: '',
+    redirectTo: 'auth/login',
     pathMatch: 'full',
   },
   {
@@ -16,7 +18,7 @@ const routes: Routes = [
     children: [
       { path: 'register', component: RegisterComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'lista-users', component: UsersComponent },
+      { path: 'lista-users', component: UsersComponent, canActivate: [AuthGuard] },
     ],
   },
 ];
