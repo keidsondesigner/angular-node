@@ -27,24 +27,29 @@
               <div *ngIf="f['email'].errors['email']">Email is required</div>
           </div>
       </mat-form-field>
-      <mat-form-field class="example-full-width">
-          <mat-label class="form-label">Password</mat-label>
-          <input
-            matInput
-            type="password"
-            formControlName="password"
-            [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
-            placeholder="Digite sua senha"
-          />
-          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-              <div *ngIf="f['password'].errors['required']">Password is required</div>
-              <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
-          </div>
-      </mat-form-field>
+      <div class="example-container">
+        <mat-form-field class="example-full-width">
+            <mat-label class="form-label">Password</mat-label>
+            <input
+              matInput
+              [type]="hide ? 'password' : 'text'"
+              formControlName="password"
+              [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+              placeholder="Digite sua senha"
+            />
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                <div *ngIf="f['password'].errors['required']">Password is required</div>
+                <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+            </div>
+        </mat-form-field>
+      </div>
       <div>
           <button type="submit" mat-flat-button color="primary" [disabled]="loading" >
               <span *ngIf="loading" class="spinner-border spinner-border-sm me-1">...</span>
-              Register
+              Salvar
           </button>
           <a mat-flat-button mat-flat-button routerLink="/auth/login">Cancel</a>
       </div>

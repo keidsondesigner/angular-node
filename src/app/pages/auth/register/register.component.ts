@@ -13,6 +13,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
+  hide = true;
+
   loading = false;
   submitted = false;
 
