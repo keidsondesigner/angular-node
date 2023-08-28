@@ -52,7 +52,7 @@ export class CadastroComponent implements OnInit {
 
     this._coursesService.updateCourse(bodyCourseToSave).subscribe(response => {
       console.log(response);
-      this.router.navigate((['produto/listagem']));
+      this.router.navigate((['/produtos/lista-produtos']));
     })
   }
 
