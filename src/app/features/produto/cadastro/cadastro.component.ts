@@ -43,6 +43,7 @@ export class CadastroComponent implements OnInit {
   }
 
   saveChanges() {
+    this.formCourse.markAllAsTouched();
     const bodyCourseToSave: ICourse = {
       id: Number(this.id),
       categoria: this.formCourse.controls['categoria'].value,
