@@ -36,6 +36,7 @@ export class CadastroComponent implements OnInit {
   }
 
   initForm() {
+    this.formCourse.markAllAsTouched();
     this.formCourse = this.formBuilder.group({
       categoria: '',
       curso: '',
@@ -43,7 +44,6 @@ export class CadastroComponent implements OnInit {
   }
 
   saveChanges() {
-    this.formCourse.markAllAsTouched();
     const bodyCourseToSave: ICourse = {
       id: Number(this.id),
       categoria: this.formCourse.controls['categoria'].value,
