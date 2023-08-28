@@ -21,7 +21,10 @@ export class CadastroComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router
   ){
-    this.initForm();
+    this.formCourse = this.formBuilder.group({
+      categoria: '',
+      curso: '',
+    });
   };
 
   ngOnInit(): void {
@@ -33,14 +36,6 @@ export class CadastroComponent implements OnInit {
       this.formCourse.controls['categoria'].setValue(this.curso.categoria);
       this.formCourse.controls['curso'].setValue(this.curso.curso);
     })
-  }
-
-  initForm() {
-    this.formCourse.markAllAsTouched();
-    this.formCourse = this.formBuilder.group({
-      categoria: '',
-      curso: '',
-    });
   }
 
   saveChanges() {
