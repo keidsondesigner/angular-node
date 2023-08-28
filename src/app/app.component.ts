@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { CursoService } from './services/curso.service';
+import { CursoService } from './core/services/curso.service';
 
 @Component({
   selector: 'app-root',

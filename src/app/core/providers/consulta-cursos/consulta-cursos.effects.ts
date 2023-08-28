@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { tap } from 'rxjs/operators';
 
 
-import { CursoService } from 'src/app/services/curso.service';
+import { CursoService } from 'src/app/core/services/curso.service';
 import { obterLista, obterListaErro, obterListaSucesso } from './consulta-cursos.actions';
 
 @Injectable()
