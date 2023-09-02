@@ -13,6 +13,11 @@
     <!-- Menu mobile element -->
     <div id="targetEl" class="menu-mobile" [ngClass]="{'hidden': isMenuMobileVisible}">
       <ul class="w-48 text-sm  text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+        <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">
+          <button (click)="toggleMenuMobile()" id="triggerEl" aria-expanded="false" type="button" class="inline-flex items-center py-2 px-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden dark:text-gray-400">
+            Fechar
+          </button>
+        </li>
         <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">Profile</li>
         <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">Settings</li>
         <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">Messages</li>
