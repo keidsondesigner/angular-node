@@ -1,5 +1,6 @@
+import { NavbarService } from './../../../core/services/navbar.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +12,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   hide = true;
 
@@ -22,14 +23,14 @@ export class LoginComponent implements OnInit {
       private formBuilder: FormBuilder,
       private router: Router,
       private authService: AuthService,
-      private toastrNotifier: ToastrService
-      // private alertService: AlertService
+      private toastrNotifier: ToastrService,
+      private navbarService: NavbarService
   ) {
     this.initForm();
   }
 
   ngOnInit() {
-
+    this.navbarService.hide();
   }
   initForm() {
     this.form = this.formBuilder.group({
@@ -75,5 +76,9 @@ export class LoginComponent implements OnInit {
         }
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.navbarService.show();
   }
 }
