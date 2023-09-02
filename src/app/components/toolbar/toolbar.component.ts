@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class ToolbarComponent implements OnInit, OnDestroy {
   showNavbar: boolean = false;
   subscription!: Subscription;
+  isMenuMobileVisible: boolean = true;
 
   constructor(private navbarService: NavbarService, private router: Router) {
     this.subscription = this.navbarService.showNavbar.subscribe((value) => {
@@ -19,6 +20,10 @@ export class ToolbarComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit(): void {
+  }
+
+  toggleMenuMobile(): void {
+    this.isMenuMobileVisible = !this.isMenuMobileVisible;
   }
 
   logOut() {
