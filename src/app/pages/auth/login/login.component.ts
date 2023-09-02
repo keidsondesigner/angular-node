@@ -32,10 +32,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.navbarService.hide();
   }
+
   initForm() {
     this.form = this.formBuilder.group({
-      email: ['', Validators.email],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['',  [Validators.required, Validators.minLength(6)]]
   });
   }
 

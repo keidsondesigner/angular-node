@@ -1,44 +1,73 @@
-<section>
-  <h1>Login</h1>
-  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input
-        matInput
-        type="email"
-        formControlName="email"
-        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
-        placeholder="Digite seu email"
-      >
-      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['email']">email is required</div>
-    </div>
-    </mat-form-field>
+<section class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <img class="mx-auto w-20" src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Your Company">
+    <h1 class="mt-10 text-center font-bold  text-gray-900">Faça login em sua conta</h1>
+  </div>
 
-    <div class="example-container">
-      <mat-form-field class="example-full-width">
-        <mat-label>Password</mat-label>
-        <input
-          matInput
-          [type]="hide ? 'password' : 'text'"
-          formControlName="password"
-          [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
-          placeholder="Digite a senha"
-        >
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-          <div *ngIf="f['password'].errors['required']">Password is required</div>
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
+        <div class="mt-2">
+          <input class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+            id="email"
+            type="email"
+            formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            placeholder="Digite seu email"
+            required
+          >
+          <div *ngIf="submitted && f['email'].errors" class="text-pink-600">
+            <div *ngIf="f['email'].errors['email']">e-mail é obrigatório</div>
+          </div>
+        </div>
       </div>
-      </mat-form-field>
+
+      <div>
+        <div class="flex items-center justify-between">
+          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Senha</label>
+          <!-- <div class="text-sm">
+            <a class="font-semibold text-indigo-600 hover:text-indigo-500"
+              routerLink="/auth/register"
+            >
+              Recuperar password?
+            </a>
+          </div> -->
+        </div>
+        <div class="mt-2">
+          <input class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+            id="password"
+            type="password"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            placeholder="Digite a senha"
+            required
+          >
+          <div *ngIf="submitted && f['password'].errors" class="text-pink-600">
+            <div *ngIf="f['password'].errors['required']">senha é obrigatória</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm text-white leading-6 border border-transparent font-semibold bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+          type="submit"
+          [disabled]="loading"
+        >
+        <span *ngIf="loading">Carregando</span>
+        <span *ngIf="!loading">Entrar</span>
+        </button>
+      </div>
+    </form>
+    <div class="my-5">
+      <p class="text-center text-sm text-gray-500">
+        Não é um membro?
+        <a class="font-semibold leading-6 text-blue-500 hover:text-blue-600"
+          routerLink="/auth/register"
+        >
+        Comece um teste gratuito
+        </a>
+      </p>
     </div>
-
-
-    <button type="submit" mat-flat-button color="primary" [disabled]="loading">
-      <span *ngIf="loading" class="spinner-border spinner-border-sm me-1">...</span>
-        Login
-    </button>
-    <a mat-flat-button routerLink="/auth/register" class="btn btn-link">Criar conta</a>
-  </form>
+  </div>
 </section>
