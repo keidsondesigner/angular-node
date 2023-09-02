@@ -17,8 +17,15 @@
             placeholder="Digite seu email"
             required
           >
-          <div *ngIf="submitted && f['email'].errors" class="text-pink-600">
-            <div *ngIf="f['email'].errors['email']">e-mail é obrigatório</div>
+          <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)"
+              class="text-pink-600">
+
+            <div *ngIf="f['email'].errors?.['required']">
+              email é obrigatório
+            </div>
+            <div *ngIf="f['email'].errors?.['email']">
+              email deve ser válido
+            </div>
           </div>
         </div>
       </div>
@@ -43,8 +50,15 @@
             placeholder="Digite a senha"
             required
           >
-          <div *ngIf="submitted && f['password'].errors" class="text-pink-600">
-            <div *ngIf="f['password'].errors['required']">senha é obrigatória</div>
+          <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)"
+              class="text-pink-600">
+
+            <div *ngIf="f['password'].errors?.['required']">
+              senha é obrigatório
+            </div>
+            <div *ngIf="f['password'].errors?.['minlength']">
+              senha deve ter pelo menos 6 caracteres
+            </div>
           </div>
         </div>
       </div>
