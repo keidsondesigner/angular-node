@@ -18,10 +18,22 @@
             Fechar
           </button>
         </li>
-        <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600">Profile</li>
-        <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">Settings</li>
-        <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">Messages</li>
-        <li class="w-full px-4 py-2 rounded-b-lg">Download</li>
+        <li class="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+          routerLink="/auth/lista-users"
+        >
+          Usuários
+        </li>
+        <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600"
+          routerLink="/produtos/lista-produtos"
+        >
+          Cursos
+        </li>
+        <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600"
+          (click)="logOut()"
+        >
+          Sair
+        </li>
+        <!-- <li class="w-full px-4 py-2 rounded-b-lg">Download</li> -->
       </ul>
     </div>
     <!-- Menu mobile element -->
