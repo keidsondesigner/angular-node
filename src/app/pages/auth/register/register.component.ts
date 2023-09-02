@@ -59,12 +59,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
             next: () => {
               this.router.navigateByUrl('/pages/auth/login')
               // this.router.navigate(['../login'], { relativeTo: this.route });
-              this.toastrNotifier.success('Hello word', 'Toastr fun!');
+              this.toastrNotifier.success('Usuário criado com sucesso', 'Wowww!');
               console.log('sucesso ao registrar user')
             },
             error: error => {
               console.log(error);
-              this.toastrNotifier.error(error.msg, 'Toastr fun!');
+              this.toastrNotifier.error(error.msg, 'Error ao criar usuário!');
               console.log('erro ao registrar user');
               this.loading = false;
             }
