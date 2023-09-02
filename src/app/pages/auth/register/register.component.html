@@ -1,57 +1,110 @@
-<h1>Register</h1>
-<section>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <mat-form-field class="example-full-width">
-          <mat-label class="form-label">Nome</mat-label>
-          <input
-            matInput
+<section class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <img class="mx-auto w-20" src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Your Company">
+    <h1 class="mt-10 text-center font-bold  text-gray-900">Resgitre sua conta</h1>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Nome</label>
+        <div class="mt-2">
+          <input class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+            id="name"
             type="text"
             formControlName="name"
-            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
             placeholder="Digite seu nome"
-          />
-          <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
-              <div *ngIf="f['name'].errors['required']">Last Name is required</div>
+            required
+          >
+          <div *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched)"
+              class="text-pink-600">
+
+            <div *ngIf="f['name'].errors?.['required']">
+              nome é obrigatório
+            </div>
+            <div *ngIf="f['name'].errors?.['minlength']">
+              nome deve ter pelo menos 4 caracteres
+            </div>
           </div>
-        </mat-form-field>
-      <mat-form-field class="example-full-width">
-          <mat-label class="form-label">Email</mat-label>
-          <input
-            matInput
+        </div>
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
+        <div class="mt-2">
+          <input class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+            id="email"
             type="email"
             formControlName="email"
             [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
             placeholder="Digite seu email"
-          />
-          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-              <div *ngIf="f['email'].errors['email']">Email is required</div>
-          </div>
-      </mat-form-field>
-      <div class="example-container">
-        <mat-form-field class="example-full-width">
-            <mat-label class="form-label">Password</mat-label>
-            <input
-              matInput
-              [type]="hide ? 'password' : 'text'"
-              formControlName="password"
-              [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
-              placeholder="Digite sua senha"
-            />
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
-                <div *ngIf="f['password'].errors['required']">Password is required</div>
-                <div *ngIf="f['password'].errors['minlength']">Password must be at least 6 characters</div>
+            required
+          >
+          <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)"
+              class="text-pink-600">
+
+            <div *ngIf="f['email'].errors?.['required']">
+              email é obrigatório
             </div>
-        </mat-form-field>
+            <div *ngIf="f['email'].errors?.['email']">
+              email deve ser válido
+            </div>
+          </div>
+        </div>
       </div>
+
       <div>
-          <button type="submit" mat-flat-button color="primary" [disabled]="loading" >
-              <span *ngIf="loading" class="spinner-border spinner-border-sm me-1">...</span>
-              Salvar
-          </button>
-          <a mat-flat-button mat-flat-button routerLink="/auth/login">Cancel</a>
+        <div class="flex items-center justify-between">
+          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Senha</label>
+          <!-- <div class="text-sm">
+            <a class="font-semibold text-indigo-600 hover:text-indigo-500"
+              routerLink="/auth/register"
+            >
+              Recuperar password?
+            </a>
+          </div> -->
+        </div>
+        <div class="mt-2">
+          <input class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+            id="password"
+            type="password"
+            formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            placeholder="Digite a senha"
+            required
+          >
+          <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)"
+              class="text-pink-600">
+
+            <div *ngIf="f['password'].errors?.['required']">
+              senha é obrigatória
+            </div>
+            <div *ngIf="f['password'].errors?.['minLength']">
+              senha deve ter pelo menos 6 caracteres
+            </div>
+          </div>
+        </div>
       </div>
-  </form>
+
+      <div>
+        <button class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm text-white leading-6 border border-transparent font-semibold bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+          type="submit"
+          [disabled]="form.invalid"
+        >
+        <span *ngIf="loading">Salvando</span>
+        <span *ngIf="!loading">Salvar</span>
+        </button>
+      </div>
+    </form>
+    <div class="my-5">
+      <p class="text-center text-sm text-gray-500">
+        É um membro?
+        <a class="font-semibold leading-6 text-blue-500 hover:text-blue-600"
+          routerLink="/auth/login"
+        >
+        Faça o login
+        </a>
+      </p>
+    </div>
+  </div>
 </section>
