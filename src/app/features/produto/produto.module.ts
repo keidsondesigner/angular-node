@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ProdutoRoutingModule } from './produto-routing.module';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ListagemComponent } from './listagem/listagem.component';
-import { AppMaterialModule } from 'src/app/shared/app-material/app-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { StoreModule } from '@ngrx/store';
@@ -28,7 +27,6 @@ import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.co
     EffectsModule.forFeature([
       ConsultaCursosEffects
     ]),
-    AppMaterialModule,
     ReactiveFormsModule,
     NgxSkeletonLoaderModule
   ]

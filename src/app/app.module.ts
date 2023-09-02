@@ -8,7 +8,6 @@ import { SexoPipe } from './core/pipes/sexo.pipe';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppMaterialModule } from './shared/app-material/app-material.module';
 import { EfetivacaoPipe } from './core/pipes/efetivacao.pipe';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -37,7 +36,6 @@ const metaReducers: MetaReducer[] = [hydrationMetaReducer ]
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     PagesModule,
-    AppMaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({}, { metaReducers }),
