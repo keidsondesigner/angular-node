@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angularUdemy": {
+    "angularNode": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angularUdemy:build:production"
+              "browserTarget": "angularNode:build:production"
             },
             "development": {
-              "browserTarget": "angularUdemy:build:development"
+              "browserTarget": "angularNode:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angularUdemy:build"
+            "browserTarget": "angularNode:build"
           }
         },
         "test": {

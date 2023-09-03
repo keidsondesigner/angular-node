@@ -10,7 +10,7 @@ import { CursoService } from './core/services/curso.service';
   `,
 })
 export class AppComponent implements OnInit {
-  title = 'angularUdemy';
+  title = 'angularNode';
 
   courses$!: Observable<any>;
 
