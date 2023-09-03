@@ -10,8 +10,6 @@ import { ConsultaCursosFacade } from 'src/app/core/providers/consulta-cursos/con
   styleUrls: ['./listagem.component.scss']
 })
 export class ListagemComponent implements OnInit, OnDestroy {
-  displayedColumns: string[] = ['categoria', 'curso', 'acoes'];
-
   isLoading$!: Observable<boolean>;
   listaCursos$!: Observable<any[]>;
   erro!: string;

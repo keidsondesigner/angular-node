@@ -1,9 +1,15 @@
-table {
-  width: 100%;
-}
-
-th {
-  font-weight: 700;
-  font-size: 14px;
-
+.skeleton-container {
+  .skeleton-bg {
+    padding: 20px;
+    border-radius: 5px;
+    background: #f9fafb;
+    .skeleton-header {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      ngx-skeleton-loader:nth-child(n+1) {
+        width: 50%;
+      }
+    }
+  }
 }

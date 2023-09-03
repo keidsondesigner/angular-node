@@ -1,82 +1,115 @@
-
+<section *ngIf="loading" class="skeleton-container max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div class="skeleton-bg">
+    <div class="skeleton-header">
+      <ngx-skeleton-loader
+      count="1"
+      appearance="line"
+      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+      >
+      </ngx-skeleton-loader>
+      <ngx-skeleton-loader
+      count="1"
+      appearance="line"
+      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+      >
+      </ngx-skeleton-loader>
+      <ngx-skeleton-loader
+      count="1"
+      appearance="line"
+      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+      >
+      </ngx-skeleton-loader>
+    </div>
+    <div class="skeleton-body">
+      <ngx-skeleton-loader
+      count="10"
+      appearance="line"
+      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+      >
+      </ngx-skeleton-loader>
+    </div>
+  </div>
+</section>
 
 <!-- Table Section -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" *ngIf=" (users$ | async)  as users">
-  <!-- Card -->
-  <div class="flex flex-col">
-    <div class="-m-1.5 overflow-x-auto">
-      <div class="p-1.5 min-w-full inline-block align-middle">
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
-          <!-- Header -->
-          <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
-            <div>
-              <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                Usuários
-              </h2>
-              <p class="text-sm text-gray-600 dark:text-gray-400">
-                Lista de usuários da plataforma.
-              </p>
+<section *ngIf="!loading">
+  <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" *ngIf=" users$  as users">
+    <!-- Card -->
+    <div class="flex flex-col">
+      <div class="-m-1.5 overflow-x-auto">
+        <div class="p-1.5 min-w-full inline-block align-middle">
+          <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
+            <!-- Header -->
+            <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
+              <div>
+                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                  Usuários
+                </h2>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  Lista de usuários da plataforma.
+                </p>
+              </div>
             </div>
+            <!-- End Header -->
+
+            <!-- Table -->
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+              <thead class="bg-gray-50 dark:bg-slate-800">
+                <tr>
+                  <th scope="col" class="pl-6 lg:pl-8 pr-6 py-3 text-left">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Id
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        nome
+                      </span>
+                    </div>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-left">
+                    <div class="flex items-center gap-x-2">
+                      <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                        Email
+                      </span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                <tr *ngFor="let item of users">
+                  <td class="h-px w-px whitespace-nowrap">
+                    <div class="px-6 py-3">
+                      <span class="text-sm text-gray-500">{{ item.id }}</span>
+                    </div>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <div class="px-6 py-3">
+                      <span class="text-sm text-gray-500">{{ item.name }}</span>
+                    </div>
+                  </td>
+                  <td class="h-px w-px whitespace-nowrap">
+                    <div class="px-6 py-3">
+                      <span class="text-sm text-gray-500">{{ item.email }}</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!-- End Table -->
           </div>
-          <!-- End Header -->
-
-          <!-- Table -->
-          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-            <thead class="bg-gray-50 dark:bg-slate-800">
-              <tr>
-                <th scope="col" class="pl-6 lg:pl-8 pr-6 py-3 text-left">
-                  <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                      Id
-                    </span>
-                  </div>
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left">
-                  <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                      nome
-                    </span>
-                  </div>
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left">
-                  <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                      Email
-                    </span>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-
-            <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-              <tr *ngFor="let item of users">
-                <td class="h-px w-px whitespace-nowrap">
-                  <div class="px-6 py-3">
-                    <span class="text-sm text-gray-500">{{ item.id }}</span>
-                  </div>
-                </td>
-                <td class="h-px w-px whitespace-nowrap">
-                  <div class="px-6 py-3">
-                    <span class="text-sm text-gray-500">{{ item.name }}</span>
-                  </div>
-                </td>
-                <td class="h-px w-px whitespace-nowrap">
-                  <div class="px-6 py-3">
-                    <span class="text-sm text-gray-500">{{ item.email }}</span>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <!-- End Table -->
         </div>
       </div>
     </div>
+    <!-- End Card -->
   </div>
-  <!-- End Card -->
-</div>
+</section>
 <!-- End Table Section -->
 
 

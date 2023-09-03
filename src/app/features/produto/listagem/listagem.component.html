@@ -1,31 +1,33 @@
-<section *ngIf="isLoading$ | async" >
-  <div class="skeleton-header">
-    <ngx-skeleton-loader
-    count="1"
-    appearance="line"
-    [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
-    >
-    </ngx-skeleton-loader>
-    <ngx-skeleton-loader
-    count="1"
-    appearance="line"
-    [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
-    >
-    </ngx-skeleton-loader>
-    <ngx-skeleton-loader
-    count="1"
-    appearance="line"
-    [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
-    >
-    </ngx-skeleton-loader>
-  </div>
-  <div class="skeleton-body">
-    <ngx-skeleton-loader
-    count="3"
-    appearance="line"
-    [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
-    >
-    </ngx-skeleton-loader>
+<section *ngIf="isLoading$ | async" class="skeleton-container max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div class="skeleton-bg">
+    <div class="skeleton-header">
+      <ngx-skeleton-loader
+      count="1"
+      appearance="line"
+      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+      >
+      </ngx-skeleton-loader>
+      <ngx-skeleton-loader
+      count="1"
+      appearance="line"
+      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+      >
+      </ngx-skeleton-loader>
+      <ngx-skeleton-loader
+      count="1"
+      appearance="line"
+      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+      >
+      </ngx-skeleton-loader>
+    </div>
+    <div class="skeleton-body">
+      <ngx-skeleton-loader
+      count="10"
+      appearance="line"
+      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+      >
+      </ngx-skeleton-loader>
+    </div>
   </div>
 </section>
 
