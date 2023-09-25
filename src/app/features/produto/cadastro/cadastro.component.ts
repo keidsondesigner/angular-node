@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CursoService } from 'src/app/core/services/curso.service';
 import { ICourse } from 'src/app/core/models/course.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,11 +16,14 @@ export class CadastroComponent implements OnInit {
 
   formCourse!: FormGroup;
 
+  loading: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private _coursesService: CursoService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastrNotifier: ToastrService,
   ){
     this.initForm();
   };
@@ -27,7 +31,7 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.url[1].path;
 
-    this._coursesService.getCourse(Number(this.id)).subscribe( course => {
+    this._coursesService.getCourse(parseInt(this.id)).subscribe( course => {
       this.curso = course;
       console.log(this.curso);
       this.formCourse.controls['categoria'].setValue(this.curso.categoria);
@@ -37,23 +41,38 @@ export class CadastroComponent implements OnInit {
 
   initForm(){
     this.formCourse = this.formBuilder.group({
-      categoria: '',
-      curso: '',
+      categoria: ['', [Validators.required, Validators.minLength(4)]],
+      curso: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 
   saveChanges() {
+    if (this.formCourse.invalid) {
+      this.toastrNotifier.warning('Preencha todos os campos.', 'Formulário inválido!');
+      return;
+    }
+
     const bodyCourseToSave: ICourse = {
-      id: Number(this.id),
+      id: parseInt(this.id),
       categoria: this.formCourse.controls['categoria'].value,
       curso: this.formCourse.controls['curso'].value
     }
     console.log('form com novo valor', this.formCourse.getRawValue());
 
-    this._coursesService.updateCourse(bodyCourseToSave).subscribe(response => {
-      console.log(response);
-      this.router.navigate((['/produtos/lista-produtos']));
-    })
+    this.loading = true;
+    this._coursesService.updateCourse(bodyCourseToSave).subscribe({
+      next: () => {
+        this.router.navigate((['/produtos/lista-produtos']));
+        // this.router.navigate(['../login'], { relativeTo: this.route });
+        this.toastrNotifier.success('Curso editado com sucesso', 'Wowww!');
+        console.log('sucesso ao editado curso')
+      },
+      error: error => {
+        console.log(error);
+        this.toastrNotifier.error(error.msg, 'Error ao editado curso!');
+        console.log('erro ao editado curso');
+        this.loading = false;
+      }
+    });
   }
-
 }
