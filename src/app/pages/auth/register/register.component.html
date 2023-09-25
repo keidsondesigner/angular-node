@@ -55,7 +55,8 @@
       <div>
         <div class="flex items-center justify-between">
           <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Senha</label>
-          <!-- <div class="text-sm">
+          <!-- Descomentar ao implementar a recuperarção de senha
+            <div class="text-sm">
             <a class="font-semibold text-indigo-600 hover:text-indigo-500"
               routerLink="/auth/register"
             >
@@ -71,9 +72,10 @@
             placeholder="Digite a senha"
             required
           >
-          <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)"
-              class="text-pink-600">
-
+          <div
+            *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)"
+            class="text-pink-600"
+          >
             <div *ngIf="f['password'].errors?.['required']">
               senha é obrigatória
             </div>
