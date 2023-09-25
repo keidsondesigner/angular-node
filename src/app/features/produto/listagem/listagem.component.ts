@@ -27,6 +27,7 @@ export class ListagemComponent implements OnInit, OnDestroy {
     this.consultaCursosFacade.obterLista();
     this.isLoading$ = this.consultaCursosFacade.selecionaIsLoading$();
     this.listaCursos$ = this.consultaCursosFacade.selecionaLista$().pipe(takeUntil(this.destroyed$));
+    console.log(this.listaCursos$);
 
     this.consultaCursosFacade
       .selecionaErro$()

@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListagemComponent } from './listagem/listagem.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { AuthGuard } from 'src/app/core/utils/auth.guard';
-import { CadastroProdutoComponent } from './cadastro-produto/cadastro-produto.component';
+import { AdicionarProdutoComponent } from './adicionar-produto/adicionar-produto.component';
 
 const routes: Routes = [
   { path: 'lista-produtos', component: ListagemComponent, canActivate: [AuthGuard]},
-  { path: 'novo-produto', component: CadastroProdutoComponent, canActivate: [AuthGuard]},
+  { path: 'novo-produto', component: AdicionarProdutoComponent, canActivate: [AuthGuard]},
   { path: 'editar-produto/:id', component: CadastroComponent, canActivate: [AuthGuard]},
 ];
 
