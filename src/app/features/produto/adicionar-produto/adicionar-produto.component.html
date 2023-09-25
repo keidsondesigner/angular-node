@@ -1,0 +1,103 @@
+<!-- Table Section -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <!-- Card -->
+  <div class="flex flex-col">
+    <div class="-m-1.5 overflow-x-auto">
+      <div class="p-1.5 min-w-full inline-block align-middle">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
+          <!-- Header -->
+          <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
+            <div>
+              <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
+                Adiconar curso
+              </h2>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Adicione um curso e uma categoria.
+              </p>
+            </div>
+
+            <div>
+              <div class="inline-flex gap-x-2">
+                <a class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+                  routerLink="/produtos/lista-produtos"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+
+                  Voltar
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- End Header -->
+
+          <div class="mt-10 mb-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <form class="space-y-6"  [formGroup]="formCreateCourse" (ngSubmit)="onSubmit()">
+              <div>
+                <label for="categoria" class="block text-sm font-medium leading-6 text-gray-900">Categoria</label>
+                <div class="mt-2">
+                  <input class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+                    id="categoria"
+                    type="text"
+                    formControlName="categoria"
+                    placeholder="Digite a categoria"
+                    required
+                  >
+                  <div
+                    *ngIf="f['categoria'].invalid && (f['categoria'].dirty || f['categoria'].touched)"
+                    class="text-pink-600"
+                  >
+                    <div *ngIf="f['categoria'].errors?.['required']">
+                      Categoria é obrigatório
+                    </div>
+                    <div *ngIf="f['categoria'].errors?.['minlength']">
+                      Categoria deve ter ao menos 4 caracteres
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex items-center justify-between">
+                  <label for="curso" class="block text-sm font-medium leading-6 text-gray-900">Curso</label>
+                </div>
+                <div class="mt-2">
+                  <input class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6"
+                    id="curso"
+                    type="text"
+                    formControlName="curso"
+                    placeholder="Digite o curso"
+                    required
+                  >
+                  <div
+                    *ngIf="f['curso'].invalid && (f['curso'].dirty || f['curso'].touched)"
+                    class="text-pink-600"
+                  >
+                    <div *ngIf="f['curso'].errors?.['required']">
+                      Curso é obrigatório
+                    </div>
+                    <div *ngIf="f['curso'].errors?.['minlength']">
+                      Curso deve ter ao menos 4 caracteres
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <button class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm text-white leading-6 border border-transparent font-semibold bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                  type="submit"
+                >
+                  <span *ngIf="loading">Salvando...</span>
+                  <span *ngIf="!loading">Salvar</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Card -->
+</div>
+<!-- End Table Section -->
