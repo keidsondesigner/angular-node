@@ -20,7 +20,11 @@ export class CursoService {
     return this.http.get<ICourse>(`${this.baseUrl}/cursos/${id}`);
   }
 
-  updateCourse(bodyCourse: ICourse): Observable<any> {
-    return this.http.put(`${this.baseUrl}/cursos/${bodyCourse.id}`, bodyCourse);
+  updateCourse(bodyCourse: ICourse): Observable<ICourse> {
+    return this.http.put<ICourse>(`${this.baseUrl}/cursos/${bodyCourse.id}`, bodyCourse);
+  }
+
+  createCourse(bodyNewCourse: ICourse): Observable<ICourse> {
+    return this.http.post<ICourse>(`${this.baseUrl}/cursos`, bodyNewCourse);
   }
 }

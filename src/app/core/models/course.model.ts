@@ -1,5 +1,5 @@
 export interface ICourse {
-  id: number,
+  id?: number,
   createdAt?: string,
   curso: string,
   categoria: string
