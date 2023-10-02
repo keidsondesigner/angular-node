@@ -11,13 +11,15 @@ import { EffectsModule } from '@ngrx/effects';
 import { consultaCursosReducer, consultaCursosStateFeatureKey } from 'src/app/core/providers/consulta-cursos/consulta-cursos.reducer';
 import { ConsultaCursosEffects } from 'src/app/core/providers/consulta-cursos/consulta-cursos.effects';
 import { AdicionarProdutoComponent } from './adicionar-produto/adicionar-produto.component';
+import { CustomDialogComponent } from 'src/app/components/custom-dialog/custom-dialog.component';
 
 
 @NgModule({
   declarations: [
     CadastroComponent,
     ListagemComponent,
-    AdicionarProdutoComponent
+    AdicionarProdutoComponent,
+    CustomDialogComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [

@@ -1,30 +1,53 @@
-<section *ngIf="isLoading$ | async" class="skeleton-container max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+<section
+  *ngIf="isLoading$ | async"
+  class="skeleton-container max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto"
+>
   <div class="skeleton-bg">
     <div class="skeleton-header">
       <ngx-skeleton-loader
-      count="1"
-      appearance="line"
-      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+        count="1"
+        appearance="line"
+        [theme]="{
+          width: '100%',
+          height: '30px',
+          'margin-bottom': '5px',
+          'border-radius': '3px'
+        }"
       >
       </ngx-skeleton-loader>
       <ngx-skeleton-loader
-      count="1"
-      appearance="line"
-      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+        count="1"
+        appearance="line"
+        [theme]="{
+          width: '100%',
+          height: '30px',
+          'margin-bottom': '5px',
+          'border-radius': '3px'
+        }"
       >
       </ngx-skeleton-loader>
       <ngx-skeleton-loader
-      count="1"
-      appearance="line"
-      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+        count="1"
+        appearance="line"
+        [theme]="{
+          width: '100%',
+          height: '30px',
+          'margin-bottom': '5px',
+          'border-radius': '3px'
+        }"
       >
       </ngx-skeleton-loader>
     </div>
     <div class="skeleton-body">
       <ngx-skeleton-loader
-      count="10"
-      appearance="line"
-      [theme]="{width: '100%', height: '30px', 'margin-bottom': '5px', 'border-radius': '3px'}"
+        count="10"
+        appearance="line"
+        [theme]="{
+          width: '100%',
+          height: '30px',
+          'margin-bottom': '5px',
+          'border-radius': '3px'
+        }"
       >
       </ngx-skeleton-loader>
     </div>
@@ -32,16 +55,25 @@
 </section>
 
 <!-- Table Section -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" *ngIf="(isLoading$ | async) === false && (listaCursos$ | async)  as courses">
+<div
+  class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto"
+  *ngIf="(isLoading$ | async) === false && (listaCursos$ | async) as courses"
+>
   <!-- Card -->
   <div class="flex flex-col">
     <div class="-m-1.5 overflow-x-auto">
       <div class="p-1.5 min-w-full inline-block align-middle">
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
+        <div
+          class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700"
+        >
           <!-- Header -->
-          <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
+          <div
+            class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700"
+          >
             <div>
-              <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
+              <h2
+                class="text-xl font-semibold text-gray-800 dark:text-gray-200"
+              >
                 Cursos
               </h2>
               <p class="text-sm text-gray-600 dark:text-gray-400">
@@ -55,11 +87,24 @@
                   Ver todos
                 </a> -->
 
-                <a class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                <a
+                  class="py-2 px-3 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
                   routerLink="/produtos/novo-produto"
                 >
-                  <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M2.63452 7.50001L13.6345 7.5M8.13452 13V2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <svg
+                    class="w-3 h-3"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M2.63452 7.50001L13.6345 7.5M8.13452 13V2"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
                   </svg>
                   Adicionar
                 </a>
@@ -69,12 +114,16 @@
           <!-- End Header -->
 
           <!-- Table -->
-          <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          <table
+            class="min-w-full divide-y divide-gray-200 dark:divide-gray-700"
+          >
             <thead class="bg-gray-50 dark:bg-slate-800">
               <tr>
                 <th scope="col" class="pl-6 lg:pl-8 pr-6 py-3 text-left">
                   <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                    <span
+                      class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200"
+                    >
                       Curso/Categoria
                     </span>
                   </div>
@@ -82,7 +131,9 @@
 
                 <th scope="col" class="px-6 py-3 text-left">
                   <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                    <span
+                      class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200"
+                    >
                       Status
                     </span>
                   </div>
@@ -90,7 +141,9 @@
 
                 <th scope="col" class="px-6 py-3 text-left">
                   <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                    <span
+                      class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200"
+                    >
                       Criado em
                     </span>
                   </div>
@@ -99,12 +152,13 @@
                 <!-- esse tag pode oculpar um espaço vazio, quando não tiver um texto no header -->
                 <th scope="col" class="px-6 py-3 text-left">
                   <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                    <span
+                      class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200"
+                    >
                       Ações
                     </span>
                   </div>
                 </th>
-
               </tr>
             </thead>
 
@@ -113,19 +167,39 @@
                 <td class="h-px w-px whitespace-nowrap">
                   <div class="pl-6 lg:pl-8 pr-6 py-3">
                     <div class="flex items-center gap-x-3">
-                      <img class="inline-block h-[2.375rem] w-[2.375rem] rounded-full" src="https://angular.io/assets/images/logos/angular/angular.svg" alt="Image Description">
+                      <img
+                        class="inline-block h-[2.375rem] w-[2.375rem] rounded-full"
+                        src="https://angular.io/assets/images/logos/angular/angular.svg"
+                        alt="Image Description"
+                      />
                       <div class="grow">
-                        <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">{{ item.curso }}</span>
-                        <span class="block text-sm text-gray-500">{{ item.categoria }}</span>
+                        <span
+                          class="block text-sm font-semibold text-gray-800 dark:text-gray-200"
+                          >{{ item.curso }}</span
+                        >
+                        <span class="block text-sm text-gray-500">{{
+                          item.categoria
+                        }}</span>
                       </div>
                     </div>
                   </div>
                 </td>
                 <td class="h-px w-px whitespace-nowrap">
                   <div class="px-6 py-3">
-                    <span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
-                      <svg class="w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    <span
+                      class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                    >
+                      <svg
+                        class="w-2.5 h-2.5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+                        />
                       </svg>
                       Ativo
                     </span>
@@ -133,15 +207,24 @@
                 </td>
                 <td class="h-px w-px whitespace-nowrap">
                   <div class="px-6 py-3">
-                    <span class="text-sm text-gray-500">{{ item.createdAt | date: 'dd/MM/yyyy' }}</span>
+                    <span class="text-sm text-gray-500">{{
+                      item.createdAt | date : "dd/MM/yyyy"
+                    }}</span>
                   </div>
                 </td>
                 <td class="h-px w-px whitespace-nowrap">
                   <div class="px-6 py-1.5">
-                    <a class="cursor-pointer inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 hover:underline font-medium"
+                    <a
+                      class="cursor-pointer inline-flex items-center gap-x-1.5 text-sm text-blue-600 decoration-2 hover:underline font-medium"
                       (click)="editar(item)"
                     >
                       Editar
+                    </a>
+                    <a
+                      class="cursor-pointer inline-flex items-center gap-x-1.5 text-sm text-pink-600 pl-6 decoration-2 hover:underline font-medium"
+                      (click)="dialogConfirmDelete(item)"
+                    >
+                      Excluír
                     </a>
                   </div>
                 </td>
@@ -151,10 +234,22 @@
           <!-- End Table -->
 
           <!-- Footer -->
-          <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700">
-            <div>
+          <div
+            class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700"
+          >
+            <div *ngIf="courses.length > 0">
               <p class="text-sm text-gray-600 dark:text-gray-400">
-                <span class="font-semibold text-gray-800 dark:text-gray-200">{{ courses.length }}</span> resultados
+                <span class="font-semibold text-gray-800 dark:text-gray-200">{{
+                  courses.length
+                }}</span>
+                resultados
+              </p>
+            </div>
+            <div *ngIf="courses.length === 0">
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                <span class="font-semibold text-gray-800 dark:text-gray-200">
+                  Nenhum item foi adicionado.
+                </span>
               </p>
             </div>
 
@@ -184,3 +279,10 @@
   <!-- End Card -->
 </div>
 <!-- End Table Section -->
+<app-custom-dialog
+  [title]="recoverTitleCourse"
+  [show]="canShowDialog"
+  (delete)="onDeleteItem()"
+  (close)="canShowDialog = false"
+>
+</app-custom-dialog>
