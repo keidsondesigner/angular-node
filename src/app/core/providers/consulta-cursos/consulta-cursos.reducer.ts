@@ -1,18 +1,32 @@
 import { Action, ActionReducer, createReducer, on } from "@ngrx/store";
-import { limpaState, obterLista, obterListaErro, obterListaSucesso } from "./consulta-cursos.actions";
+import {
+  limpaState,
+  obterCursoPorId,
+  obterCursoPorIdErro,
+  obterCursoPorIdSucesso,
+  obterLista,
+  obterListaErro,
+  obterListaSucesso
+} from "./consulta-cursos.actions";
+import { ICourse } from "@core/models/course.model";
 
 
 export interface ConsultaCursosState {
+  lista: ICourse[];
+  curso: ICourse;
   isLoading: boolean;
-  lista: any[];
   erro: string;
 }
 
 export const consultaCursosStateFeatureKey = 'consultaCursos';
 
 export const initialState: ConsultaCursosState = {
-  isLoading: false,
   lista: [],
+  curso: {
+    curso: '',
+    categoria: '',
+  },
+  isLoading: false,
   erro: ''
 };
 
@@ -21,6 +35,7 @@ export const consultaCursosReducer: ActionReducer<ConsultaCursosState, Action> =
   on(limpaState, () => ({
     ...initialState
   })),
+
   on(obterLista, state => ({
     ...state,
     isLoading: true,
@@ -33,6 +48,23 @@ export const consultaCursosReducer: ActionReducer<ConsultaCursosState, Action> =
     error: undefined
   })),
   on(obterListaErro, (state, { erro }) => ({
+    ...state,
+    isLoading: false,
+    erro
+  })),
+
+  on(obterCursoPorId, state => ({
+    ...state,
+    isLoading: true,
+    error: undefined
+  })),
+  on(obterCursoPorIdSucesso, (state, { curso }) => ({
+    ...state,
+    curso,
+    isLoading: false,
+    error: undefined
+  })),
+  on(obterCursoPorIdErro, (state, { erro }) => ({
     ...state,
     isLoading: false,
     erro

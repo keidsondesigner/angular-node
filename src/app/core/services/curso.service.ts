@@ -27,4 +27,8 @@ export class CursoService {
   createCourse(bodyNewCourse: ICourse): Observable<ICourse> {
     return this.http.post<ICourse>(`${this.baseUrl}/cursos`, bodyNewCourse);
   }
+
+  deleteCourse(id: number): Observable<ICourse> {
+    return this.http.delete<ICourse>(`${this.baseUrl}/cursos/${id}`);
+  }
 }
