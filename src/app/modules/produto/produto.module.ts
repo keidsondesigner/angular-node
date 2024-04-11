@@ -8,10 +8,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { consultaCursosReducer, consultaCursosStateFeatureKey } from 'src/app/core/providers/consulta-cursos/consulta-cursos.reducer';
-import { ConsultaCursosEffects } from 'src/app/core/providers/consulta-cursos/consulta-cursos.effects';
+import { consultaCursosReducer, consultaCursosStateFeatureKey } from '@providers/consulta-cursos/consulta-cursos.reducer';
+import { ConsultaCursosEffects } from '@providers/consulta-cursos/consulta-cursos.effects';
 import { AdicionarProdutoComponent } from './adicionar-produto/adicionar-produto.component';
-import { CustomDialogComponent } from 'src/app/components/custom-dialog/custom-dialog.component';
+import { CustomDialogComponent } from '../../components/custom-dialog/custom-dialog.component';
 
 
 @NgModule({

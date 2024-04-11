@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'produtos',
     loadChildren: () =>
-      import('./features/produto/produto.module').then((m) => m.ProdutoModule),
+      import('./modules/produto/produto.module').then((m) => m.ProdutoModule),
   },
   { path: '**', redirectTo: '' } // qualquer outra rota redireciona para home
 ];

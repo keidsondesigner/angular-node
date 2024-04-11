@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { first } from 'rxjs';
-import { ICourse } from 'src/app/core/models/course.model';
-import { CursoService } from 'src/app/core/services/curso.service';
+import { ICourse } from '@core/models/course.model';
+import { CursoService } from '@core/services/curso.service';
 
 @Component({
   selector: 'app-adicionar-produto',

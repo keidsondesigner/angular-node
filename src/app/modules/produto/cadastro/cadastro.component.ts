@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CursoService } from 'src/app/core/services/curso.service';
-import { ICourse } from 'src/app/core/models/course.model';
+import { CursoService } from '@core/services/curso.service';
+import { ICourse } from '@core/models/course.model';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
