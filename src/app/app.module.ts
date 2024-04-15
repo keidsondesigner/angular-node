@@ -19,7 +19,7 @@ import { StoreModule } from '@ngrx/store';
 import { hydrationMetaReducer } from './rehydrate_reducer';
 import { PagesModule } from './pages/pages.module';
 import { ToastrModule } from 'ngx-toastr';
-import { AddJwtInterceptor } from './core/interceptor/add-jwt.interceptor';
+import { AddJwtInterceptor } from '@core/interceptors/add-jwt.interceptor';
 
 const metaReducers: MetaReducer[] = [hydrationMetaReducer ]
 @NgModule({
