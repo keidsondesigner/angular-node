@@ -5,7 +5,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { UsersComponent } from './auth/users/users.component';
 
 //Gurads
-import { AuthGuard } from '../core/utils/auth.guard';
+import { AuthGuard } from '@core/guards/auth.guard';
 
 const routes: Routes = [
   {
